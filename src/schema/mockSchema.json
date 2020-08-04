@@ -1,0 +1,64 @@
+[
+  {
+    "name": "text-name-01",
+    "label": "Text Label",
+    "placeholder": "Text placeholder",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "date-name-01",
+    "label": "Date label",
+    "placeholder": "Date placeholder",
+    "type": "date",
+    "required": true
+  },
+  {
+    "name": "checkbox-name-01",
+    "label": "Checkbox Label",
+    "type": "checkbox",
+    "options": ["Male", "Female"],
+    "required": true
+  },
+  {
+    "type": "array",
+    "name": "array-name-01",
+    "items": [
+      {
+        "name": "items-name-01",
+        "label": "Array Text Label",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "enums": ["enum1", "enum2", "enum3"]
+  },
+  {
+    "name": "checkbox-name-02",
+    "label": "Checkbox with Conditons",
+    "type": "checkbox",
+    "isBoolean": true,
+    "required": true
+  },
+  {
+    "label": "Custom Field Label",
+    "type": "object",
+    "conditions": [{ "checkbox-name-02": true }],
+    "properties": {
+      "name": {
+        "name": "custom-name-01",
+        "label": "Object Text Label 1 ",
+        "placeholder": "Text placeholder",
+        "type": "text",
+        "required": false
+      },
+      "contact": {
+        "name": "custom-name-02",
+        "label": "Object Text Label 2 ",
+        "placeholder": "Text placeholder",
+        "type": "text",
+        "required": false
+      }
+    }
+  }
+]

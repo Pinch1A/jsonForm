@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Form } from './components'
+import schema from './schema/mockSchema.json'
+import { contextBuilder } from './helpers/helpers'
+import { FormProvider } from './hooks/useFormContext'
 
-function App() {
+const App = () => {
+  const [formState, setFormState] = useState(contextBuilder(schema))
+  const setValues = (values) => {
+    setFormState({ ...formState, ...values })
+  }
+  const context = {
+    values: formState,
+    setValues,
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <FormProvider value={context}>
+      <Form schema={schema} />
+    </FormProvider>
+  )
 }
 
-export default App;
+export default App
